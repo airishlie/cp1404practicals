@@ -4,10 +4,10 @@ PASSWORD_LENGTH = 10
 def main() :
     password = get_password()
 
-    print_asteriks(password)
+    display_asteriks(password)
 
 
-def print_asteriks(password):
+def display_asteriks(password):
     print(password * "*")
 
 
