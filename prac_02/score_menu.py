@@ -25,6 +25,7 @@ def main():
     print("Finished.")
 
 def validate_score ():
+    """Checks if the user enter a valid score between 0 to 100"""
     score = int(input("Enter score : "))
     while score < MINIMUM_SCORE or score > MAXIMUM_SCORE:
         print ("Invalid Score!! Score must be between 0 to 100")
@@ -32,6 +33,7 @@ def validate_score ():
     return score
 
 def evaluate_score (score) :
+    """Return evaluation of the score"""
     if score >= 90:
         return "Excellent"
     elif  score >= 50:
