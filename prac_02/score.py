@@ -14,6 +14,7 @@ def main ():
 
 
 def evaluate_score (score) :
+    """Checks if the score is valid and display the result of the score"""
     if score < MINIMUM_SCORE or score > MAXIMUM_SCORE:
         return "Invalid score"
     elif score >= 90:
