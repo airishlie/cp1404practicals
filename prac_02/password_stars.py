@@ -2,20 +2,15 @@
 PASSWORD_LENGTH = 10
 
 def main() :
-    password = get_password()
-
-    display_asteriks(password)
-
-
-def display_asteriks(password):
     """Display asteriks equal to the length of the password"""
+    password = validate_password()
     print(password * "*")
 
 
-def get_password():
-    """Asks the user for a password and ensures that the length is not shorter than the password length"""
+def validate_password():
+    """Get a valid password"""
     password = len(input("Enter password : "))
-    while password <= PASSWORD_LENGTH:
+    while password < PASSWORD_LENGTH:
         print("Invalid Password")
         password = len(input("Enter password : "))
     return password
