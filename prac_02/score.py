@@ -32,5 +32,4 @@ def validate_score () :
         print ("Invalid score")
         score = float(input("Enter score : "))
     return score
-
 main()
