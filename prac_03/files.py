@@ -1,12 +1,15 @@
-# 1.  Ask for the user's name and write it to a file
+# 1. Ask for the user's name and write it to a file
 name = input("Enter your name: ")
-with open('name.txt', 'w') as out_file:
-    out_file.write(name)
+out_file = open('name.txt', 'w')
+out_file.write(name)
+out_file.close()
 
 # 2. Read from 'name.txt' and print the name in the format "Hi Bob!"
-with open('name.txt', 'r') as in_file:
-    name_from_file = in_file.read().strip()
-    print(f"Hi {name_from_file}!")
+in_file = open('name.txt', 'r')
+name_from_file = in_file.read().strip()
+in_file.close()
+
+print(f"Hi {name_from_file}!")
 
 # 3. Add the first two numbers in 'numbers.txt' and print the result
 with open('numbers.txt', 'r') as in_file:
