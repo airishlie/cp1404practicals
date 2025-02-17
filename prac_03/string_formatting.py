@@ -25,26 +25,26 @@ print(f"My {name} was first made in {year} (that's right, {year}!)")
 # Formatting currency (grouping with comma, 2 decimal places):
 print("My {} would cost ${:,.2f}".format(name, cost))  # str.format version
 print(f"My {name} would cost ${cost:,.2f}")  # preferred f-string version
+print()
 
 # Aligning columns by using width after the :
 # This loop uses enumerate, which is useful when you want both the index and value
 numbers = [1, 19, 123, 456, -25]
 
-count = 1
-for number in numbers:
-    print (f"Number {count} is {number:5}")
-    count += 1
+for i,number in enumerate(numbers, 1):
+    print (f"Number {i} is {number:5}")
 
-print(f"{year} {name} for about ${cost:,.0f}!")
-
-for exponent in range(EXPONENT_LIMIT):
-    print (f"2 ^ {exponent:2} is {2 ** exponent:4}")
-
+print()
 
 # TODO: Use f-string formatting to produce the output:
 # 1922 Gibson L-5 CES for about $16,036!
+print(f"{year} {name} for about ${cost:,.0f}!")
+print()
 
 # TODO: Using a for loop with the range function and f-string formatting,
+for exponent in range(EXPONENT_LIMIT):
+    print (f"2 ^ {exponent:2} is {2 ** exponent:4}")
+
 # produce the following right-aligned output (DO NOT use a list):
 # 2 ^ 0 is    1
 # 2 ^ 1 is    2
