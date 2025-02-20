@@ -6,6 +6,7 @@ MINIMUM_NUMBER = 1
 MAXIMUM_NUMBER = 45
 
 def main():
+    """Get user input and display quick picks"""
     quick_picks = int(input("How many quick picks? "))
 
     for _ in range(quick_picks):
@@ -13,6 +14,7 @@ def main():
         print(" ".join(f"{number:2}" for number in pick))
 
 def generate_quick_pick():
+    """Generate a single quick pick with unique random numbers sorted in ascending order"""
     selected_numbers = set()
     while len(selected_numbers) < NUMBERS_PER_PICK:
         number = random.randint(MINIMUM_NUMBER, MAXIMUM_NUMBER)
