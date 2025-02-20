@@ -9,7 +9,7 @@ def main():
     """Get user input and display quick picks"""
     quick_picks = int(input("How many quick picks? "))
 
-    for _ in range(quick_picks):
+    for i in range(quick_picks):
         pick = generate_quick_pick()
         print(" ".join(f"{number:2}" for number in pick))
 
