@@ -1,3 +1,10 @@
+"""
+Word Occurences Counter
+Estimate time : 15 minutes
+
+This program counts the occurences of words in a user-inputted string.
+Then it will displays the results in alphabetical order, aligned neatly
+"""
 def main():
     text = input("Text: ")
     words = text.split()
