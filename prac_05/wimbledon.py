@@ -1,7 +1,7 @@
 """
 Wimbledon Champions Data Processor
 
-Estimate Time :
+Estimate Time : 50 minutes
 Actual Time : 28 February 2025 (12:00 pm - 12:50 pm)
 
 This program reads data from 'wimbledon.csv', process it to :
@@ -13,6 +13,7 @@ import csv
 FILENAME = "wimbledon.csv"
 
 def main() :
+    """Load Wimbledon data, process it, and display the champions and their countries"""
     champions, countries = load_data(FILENAME)
     display_champions(champions)
     display_countries(countries)
