@@ -1,6 +1,8 @@
 """
 Word Occurences Counter
+
 Estimate time : 15 minutes
+Actual Time : 27 February 2025 (7pm - 7.15pm)
 """
 def main():
     """Counts the occurences of words and displays in alphabetical order"""
