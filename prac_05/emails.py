@@ -2,8 +2,8 @@
 Email-to-name storage program
 Stores users emails and names in a dictionary with validation and formatted output
 
-Estimated Time : 30 minutes
-Actual Time : 28 February (8:30-8:50, 11:20-11:30)
+Estimated Time : 50 minutes
+Actual Time : 28 February (8:30-8:50, 11:20-11:30) 30 minutes
 """
 
 def main() :
