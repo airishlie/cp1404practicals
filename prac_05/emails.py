@@ -10,7 +10,7 @@ def main() :
     """Store emails and names in dictionary, allowing users to confirm their names"""
     email_to_name = {}
 
-    email = input ("Email : ")
+    email = input ("Email : ").strip()
     while email :
         suggested_name = get_name_from_email(email)
         confirmation = input(f"Is your name {suggested_name}? (Y/n) ").strip().lower()
@@ -21,7 +21,7 @@ def main() :
             name = suggested_name
 
         email_to_name[email] = name
-        email = input ("Email: ")
+        email = input ("Email: ").strip()
 
     print()
     for email,name in email_to_name.items():
