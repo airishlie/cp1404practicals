@@ -20,7 +20,7 @@ def main() :
 
 def load_data(filename) :
     """Read the Wimbledon data file and return processed information"""
-    champions = {}
+    players_to_titles = {}
     countries = set()
 
     with open (filename, "r", encoding = "utf-8") as file :
@@ -31,11 +31,11 @@ def load_data(filename) :
             champion,country = row[2], row[1]
 
             #Count wins per champion
-            champions[champion] = champions.get(champion,0) + 1
+            players_to_titles[champion] = players_to_titles.get(champion,0) + 1
 
             #Collect unique countries
             countries.add (country)
-        return champions, countries
+        return players_to_titles, countries
 
 def display_champions (champions) :
     """Display the champions and their number of wins"""
