@@ -9,7 +9,7 @@ from prac_06.car import Car
 
 def main():
     """Demo test code to show how to use car class."""
-    my_car = Car(180)
+    my_car = Car("MyCar", 180)
     print("Initial car state:", my_car)
 
     my_car.drive(30)
@@ -27,8 +27,17 @@ def main():
     # Make sure that fuel not negative
     print(f"Final fuel level: {my_car.fuel}")
 
-    # Test __str__()
-    print (f"Car string representation: {my_car}")
+    # Create a limo with 100 fuel
+    limo = Car("Limo", 100)
+    limo.add_fuel(20)
+    print(f"Limo fuel after adding 20: {limo.fuel}")
+
+    # Driving limo 115 km
+    limo.drive(115)
+    print(f"Limo after attempting to drive 115 km: {limo}")
+
+    # Make sure limo's updates correctly
+    print(f"Final state of Limo: {limo}")
 
 
 main()
