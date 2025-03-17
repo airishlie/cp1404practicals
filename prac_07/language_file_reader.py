@@ -11,35 +11,29 @@ from programming_language import ProgrammingLanguage
 
 
 def main():
-    """Read file of programming language details, save as objects, display."""
+    """Read file of programming language details, save as objects, and display them."""
     languages = []
-    # Open the file for reading
-    in_file = open('languages.csv', 'r')
-    # File format is like: Language,Typing,Reflection,Year
-    # 'Consume' the first line (header) - we don't need its contents
-    in_file.readline()
-    # All other lines are language data
-    for line in in_file:
-        # print(repr(line))  # debugging
-        # Strip newline from end and split it into parts (CSV)
-        parts = line.strip().split(',')
-        # print(parts)  # debugging
-        # Reflection is stored as a string (Yes/No) and we want a Boolean
-        reflection = parts[2] == "Yes"
-        # Construct a ProgrammingLanguage object using the elements
-        # year should be an int
-        language = ProgrammingLanguage(parts[0], parts[1], reflection, int(parts[3]))
-        # Add the language we've just constructed to the list
-        languages.append(language)
-    # Close the file as soon as we've finished reading it
-    in_file.close()
 
-    # Loop through and display all languages (using their str method)
+    # Open the CSV file for reading
+    with open('languages.csv', 'r') as in_file:
+        # Read and ignore the first line (header)
+        in_file.readline()
+
+        for line in in_file:
+            # Strip newline and split line into components
+            parts = line.strip().split(',')
+
+            # Convert necessary values: Reflection and Pointer Arithmetic (Yes/No → Boolean)
+            reflection = parts[2] == "Yes"
+            pointer_arithmetic = parts[4] == "Yes"
+
+            # Create a ProgrammingLanguage object with all attributes
+            language = ProgrammingLanguage(parts[0], parts[1], reflection, int(parts[3]), pointer_arithmetic)
+            languages.append(language)
+
+    # Display all programming languages using their __repr__ method
     for language in languages:
         print(language)
-
-
-main()
 
 
 def using_csv():
@@ -86,3 +80,4 @@ def using_csv_namedtuple():
         print(repr(language))
 
 # using_csv_namedtuple()
+main()
