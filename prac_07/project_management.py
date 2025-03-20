@@ -3,6 +3,41 @@ from project import Project
 
 FILENAME = "projects.txt"
 
+def main():
+    print("Welcome to Pythonic Project Management")
+    projects = load_projects(FILENAME)
+    print(f"Loaded {len(projects)} projects from {FILENAME}")
+
+    menu = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- (A)dd new project\n- (U)pdate project\n- (Q)uit"
+
+    choice = input(menu + "\n>>> ").lower()
+    while choice != 'q':
+        if choice == 'l':
+            filename = input("Filename to load from: ")
+            projects = load_projects(filename)
+        elif choice == 's':
+            filename = input("Filename to save to: ")
+            save_projects(filename, projects)
+        elif choice == 'd':
+            display_projects(projects)
+        elif choice == 'f':
+            date_str = input("Show projects that start after date (dd/mm/yyyy): ")
+            filter_projects_by_date(projects, date_str)
+        elif choice == 'a':
+            project = add_new_project()
+            projects.append(project)
+        elif choice == 'u':
+            update_project(projects)
+        else:
+            print("Invalid choice.")
+
+        choice = input(menu + "\n>>> ").lower()
+
+    save_prompt = input(f"Would you like to save to {FILENAME}? ").lower()
+    if save_prompt in ('yes', 'y'):
+        save_projects(FILENAME, projects)
+
+    print("Thank you for using custom-built project management software.")
 
 def load_projects(filename):
     projects = []
@@ -69,44 +104,6 @@ def update_project(projects):
 
     project.update(new_percentage=int(new_percentage) if new_percentage else None,
                    new_priority=int(new_priority) if new_priority else None)
-
-
-def main():
-    print("Welcome to Pythonic Project Management")
-    projects = load_projects(FILENAME)
-    print(f"Loaded {len(projects)} projects from {FILENAME}")
-
-    menu = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- (A)dd new project\n- (U)pdate project\n- (Q)uit"
-
-    choice = input(menu + "\n>>> ").lower()
-    while choice != 'q':
-        if choice == 'l':
-            filename = input("Filename to load from: ")
-            projects = load_projects(filename)
-        elif choice == 's':
-            filename = input("Filename to save to: ")
-            save_projects(filename, projects)
-        elif choice == 'd':
-            display_projects(projects)
-        elif choice == 'f':
-            date_str = input("Show projects that start after date (dd/mm/yyyy): ")
-            filter_projects_by_date(projects, date_str)
-        elif choice == 'a':
-            project = add_new_project()
-            projects.append(project)
-        elif choice == 'u':
-            update_project(projects)
-        else:
-            print("Invalid choice.")
-
-        choice = input(menu + "\n>>> ").lower()
-
-    save_prompt = input(f"Would you like to save to {FILENAME}? ").lower()
-    if save_prompt in ('yes', 'y'):
-        save_projects(FILENAME, projects)
-
-    print("Thank you for using custom-built project management software.")
-
 
 if __name__ == '__main__':
     main()
