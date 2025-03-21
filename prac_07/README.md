@@ -15,10 +15,8 @@ Functions should be small and perform a single, clear task.
 Use descriptive names for variables, functions, and classes to make code self-explanatory.
 Write code that is consistently formatted, easy to read, and well-commented.
 
-### Useful Links 
-
-https://github.com/CP1404/Practicals
-https://github.com/CP1404/Starter/wiki/Programming-Patterns
-[My Practicals Repository](https://github.com/airishlie/cp1404practicals)
-
+### Useful Links
+- [CP1404 Practicals Instructions Repository](https://github.com/CP1404/Practicals)  
+- [Programming Patterns](https://github.com/CP1404/Starter/wiki/Programming-Patterns)  
+- [My Practicals Repository](https://github.com/airishlie/cp1404practicals)  
 
