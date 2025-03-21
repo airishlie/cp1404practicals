@@ -1,4 +1,3 @@
-Practical 07
 CP1404 Practicals
 
 ### Project Introduction
