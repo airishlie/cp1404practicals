@@ -1,33 +1,30 @@
 """
 CP1404/CP5632 Practical
-Kivy GUI program to square a number
-Lindsay Ward, IT@JCU
-Started 13/10/2015
+Kivy GUI program to square a number (refactored version)
 """
 
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.core.window import Window
 
-__author__ = 'Lindsay Ward'
-
+__author__ = 'Lindsay Ward (Refactored)'
 
 class SquareNumberApp(App):
-    """ SquareNumberApp is a Kivy App for squaring a number """
+    """Kivy App to square a number with refactoring"""
     def build(self):
-        """ build the Kivy app from the kv file """
-        Window.size = (200, 100)
-        self.title = "Square Number"
+        Window.size = (400, 200)
+        self.title = "Square Number 2"
         self.root = Builder.load_file('squaring.kv')
         return self.root
 
-    def handle_calculate(self, value):
-        """ handle calculation (could be button press or other call), output result to label widget """
+    def handle_calculate(self, text_value):
+        """Handle calculation and display result in output label with error handling"""
         try:
-            result = float(value) ** 2
+            number = float(text_value)
+            result = number ** 2
             self.root.ids.output_label.text = str(result)
         except ValueError:
-            pass
-
+            self.root.ids.output_label.text = "Invalid input"
 
 SquareNumberApp().run()
+
