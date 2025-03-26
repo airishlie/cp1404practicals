@@ -1,35 +1,19 @@
-"""
-Kivy example for CP1404/CP5632, IT@JCU
-Dynamically create labels based on content of a list
-Lindsay Ward, adapted by Airish Yacob Lie, date: 26 March 2025
-"""
-
 from kivy.app import App
-from kivy.lang import Builder
+from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 
-
 class DynamicLabelsApp(App):
-    """Main program - Kivy app to demo dynamic label creation."""
-
     def __init__(self, **kwargs):
-        """Construct main app."""
         super().__init__(**kwargs)
-        # basic data (model) example - list of names
-        self.names = ["Bob Brown", "Cat Cyan", "Oren Ochre"]
+        self.names = ["Alice", "Bob", "Charlie", "Diana", "Eve"]  # daftar nama (strings)
 
     def build(self):
-        """Build the Kivy GUI."""
-        self.title = "Dynamic Labels"
-        self.root = Builder.load_file('dynamic_labels.kv')
-        self.create_labels()
-        return self.root
-
-    def create_labels(self):
-        """Create labels from data and add them to the GUI."""
+        root = BoxLayout(orientation='vertical')
         for name in self.names:
-            temp_label = Label(text=name)
-            self.root.ids.main.add_widget(temp_label)
+            label = Label(text=name)
+            root.add_widget(label)
+        return root
 
+if __name__ == '__main__':
+    DynamicLabelsApp().run()
 
-DynamicLabelsApp().run()
