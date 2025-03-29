@@ -1,8 +1,8 @@
 """
 CP1404/CP5632 Practical
-Car class
+Taxi class
 """
-from prac_09.car import Car
+from car import Car  # Fixed import to match local file structure
 
 
 class Taxi(Car):
