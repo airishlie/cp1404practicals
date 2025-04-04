@@ -1,26 +1,23 @@
-"""Band example with list of musicians."""
-from band import Band
-from musician import Musician
-from guitar import Guitar
+"""Band class for CP1404 - demonstrates association: Band has Musicians"""
 
 
-def main():
-    band = Band("Extreme")
-    nuno = Musician("Nuno Bettencourt")
-    nuno.add(Guitar("Washburn N4", 1990, 2499.95))
-    nuno.add(Guitar("Takamine acoustic", 1986, 1200.0))
-    band.add(nuno)
-    band.add(Musician("Gary Cherone"))
-    pat = Musician("Pat Badger")
-    pat.add(Guitar("Mouradian CS-74 Bass", 2009, 1500.0))
-    band.add(pat)
-    kevin = Musician("Kevin Figueiredo")
-    band.add(kevin)
+class Band:
+    """Band class that stores a list of Musicians."""
 
-    print("band (str)")
-    print(band)
-    print("band.play()")
-    print(band.play())
+    def __init__(self, name=""):
+        """Construct a Band with a name and empty musician list."""
+        self.name = name
+        self.musicians = []
 
+    def add(self, musician):
+        """Add a musician to the band."""
+        self.musicians.append(musician)
 
-main()
+    def __str__(self):
+        """Return string showing the band's name and its musicians."""
+        return f"{self.name} ({', '.join(str(musician) for musician in self.musicians)})"
+
+    def play(self):
+        """Return a string of all musicians playing their first instrument (if any)."""
+        return '\n'.join(musician.play() for musician in self.musicians)
+
