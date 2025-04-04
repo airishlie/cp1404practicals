@@ -7,6 +7,7 @@ from car import Car  # Fixed import to match local file structure
 
 class Taxi(Car):
     """Specialised version of a Car that includes fare costs."""
+    price_per_km = 1.23  # Add this as a class-level variable
 
     def __init__(self, name, fuel, price_per_km):
         """Initialise a Taxi instance, based on parent class Car."""
