@@ -15,7 +15,7 @@ def main():
 
     fare = fancy_taxi.get_fare()
     print(f"Fare: ${fare:.2f}")
-    assert round(fare, 2) == 48.78, f"Expected $48.78, but got ${fare:.2f}"
+    assert fare == 48.80, f"Expected $48.80, but got ${fare:.2f}"
 
 
 main()
