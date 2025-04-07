@@ -12,12 +12,12 @@ def main():
 
     choice = input(menu + "\n>>> ").lower()
     while choice != 'q':
-        if choice == 'l':
-            filename = input("Filename to load from: ")
-            projects = load_projects(filename)
-        elif choice == 's':
-            filename = input("Filename to save to: ")
-            save_projects(filename, projects)
+        if choice in ('l', 's'):
+            filename = input("Filename to load from: " if choice == 'l' else "Filename to save to: ")
+            if choice == 'l':
+                projects = load_projects(filename)
+            else:
+                save_projects(filename, projects)
         elif choice == 'd':
             display_projects(projects)
         elif choice == 'f':
@@ -39,6 +39,7 @@ def main():
 
     print("Thank you for using custom-built project management software.")
 
+
 def load_projects(filename):
     projects = []
     with open(filename, 'r') as file:
@@ -58,6 +59,13 @@ def save_projects(filename, projects):
                 f"{project.name}\t{project.start_date.strftime('%d/%m/%Y')}\t{project.priority}\t{project.cost_estimate}\t{project.percent_complete}\n")
 
 
+def print_project_list(title, project_list):
+    """Prints a titled list of projects."""
+    print(f"{title}:")
+    for project in project_list:
+        print(f"  {project}")
+
+
 def display_projects(projects):
     incomplete = [p for p in projects if not p.is_complete()]
     complete = [p for p in projects if p.is_complete()]
@@ -65,21 +73,15 @@ def display_projects(projects):
     incomplete.sort()
     complete.sort()
 
-    print("Incomplete projects:")
-    for project in incomplete:
-        print(f"  {project}")
-
-    print("Completed projects:")
-    for project in complete:
-        print(f"  {project}")
+    print_project_list("Incomplete projects", incomplete)
+    print_project_list("Completed projects", complete)
 
 
 def filter_projects_by_date(projects, date_str):
     date = datetime.datetime.strptime(date_str, "%d/%m/%Y").date()
     filtered = [p for p in projects if p.start_date > date]
     filtered.sort(key=lambda x: x.start_date)
-    for project in filtered:
-        print(project)
+    print_project_list("Filtered projects", filtered)
 
 
 def add_new_project():
@@ -105,5 +107,7 @@ def update_project(projects):
     project.update(new_percentage=int(new_percentage) if new_percentage else None,
                    new_priority=int(new_priority) if new_priority else None)
 
+
 if __name__ == '__main__':
     main()
+
