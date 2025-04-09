@@ -1,6 +1,7 @@
 from taxi import Taxi
 
 def main():
+    """Test the Taxi class by simulating two drives and printing details and fares."""
     my_taxi = Taxi("Prius 1", 100, 1.23)
 
     # Drive the taxi 40 km
