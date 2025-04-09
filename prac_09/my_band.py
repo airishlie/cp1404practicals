@@ -5,6 +5,8 @@ from guitar import Guitar
 
 
 def main():
+    """Create a Band with several Musicians and Guitars, then display and play the Band."""
+
     band = Band("Extreme")
     nuno = Musician("Nuno Bettencourt")
     nuno.add(Guitar("Washburn N4", 1990, 2499.95))
