@@ -5,6 +5,7 @@ Test code for UnreliableCar
 from unreliable_car import UnreliableCar
 
 def main():
+    """Test the UnreliableCar class by simulating driving with high and low reliability."""
     reliable_car = UnreliableCar("Reliable", 100, 90.0)
     unreliable_car = UnreliableCar("Unreliable", 100, 10.0)
 
