@@ -2,8 +2,10 @@
 CP1404/CP5632 Practical
 Wikipedia page search program using the wikipedia package
 """
+
 import wikipedia
 from wikipedia import DisambiguationError, PageError
+
 
 def main():
     """Prompt user for page titles and display page summary and URL, with error handling."""
@@ -13,7 +15,7 @@ def main():
         if not title:
             break
         try:
-            page = wikipedia.page(title, autosuggest=False)
+            page = wikipedia.page(title)  # autosuggest removed
             print(page.title)
             print(wikipedia.summary(title, sentences=2))
             print(page.url)
@@ -21,7 +23,7 @@ def main():
             print("We need a more specific title. Try one of the following, or a new search:")
             print(e.options)
         except PageError:
-            print("Page id \"{}\" does not match any pages. Try another id!".format(title))
+            print(f'Page id "{title}" does not match any pages. Try another id!')
 
     print("Thank you.")
 
